@@ -1,0 +1,34 @@
+{% extends "blog/blog.html" %}
+
+{% block content %}
+
+
+<div class="container">
+	<div class="content">
+		<div class="single-page">
+			<div class="print-main">
+				<h3>Latest Rugby News</h3>
+				<div id='buttons'>
+				<a href="{% url 'create' %}" type="button" class="btn btn-info"> Create Post </a><br><br><br>
+				</div>
+				{% for post in blog_articles %}
+				{% if post.sport == 'Rugby' %}
+				<a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
+				<p class="sub_head">Posted by Team.</a> on {{ post.created }}</p>
+				<p class="span">Category: <a href="{% url 'rugby' %}">{{ post.sport }}</a></p>
+				<p class="ptext"> {{ post.body|safe|linebreaks|truncatechars:100}}</p><br><a href="{% url 'detail' post.pk %}"> Read More &rarr;</a>
+				<br> <br> <br> <br> <br>
+				{% endif %}
+				{% endfor %}
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+
+	{{ post.image }}<br>
+	<h5>{{ post.body|safe|linebreaks }} </h5>

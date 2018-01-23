@@ -1,0 +1,37 @@
+{% extends "blog/blog.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="content">
+		<div class="single-page">
+			<div class="print-main">
+				{% if messages %}
+				<ul class="messages">
+					{% for message in messages %}
+					<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+					{% endfor %}
+					</ul>
+				{% endif %}
+				<div id='buttons'>
+				<a href="{% url 'create' %}" type="button" class="btn btn-info"> Create Post </a>
+				<a href="{% url 'edit' full_article.pk %}" type="button" class="btn btn-info"> Edit Post </a><br><br><br>
+				</div>
+				<a>{{ full_article.title }}</a>
+				<p class="sub_head">Posted by Team.</a> on {{ full_article.created }}</p>
+				<!--<img src="images/printing.jpg" class="img-responsive" alt="" />-->
+				{% if full_article.sport == 'Football' %}
+				<p class="span">Category: <a href="{% url 'football' %}">{{ full_article.sport }}</a></p>
+				{% elif full_article.sport == 'Rugby' %}
+				<p class="span">Category: <a href="{% url 'rugby' %}">{{ full_article.sport }}</a></p>
+				{% elif full_article.sport == 'American Football' %}
+				<p class="span">Category: <a href="{% url 'american' %}">{{ full_article.sport }}</a></p>
+				{% endif %}
+				<p class="ptext"> {{ full_article.body|safe|linebreaks}}</p>
+				<br> <br>
+			</div>
+		</div>	
+	</div>
+</div>
+
+{% endblock %}

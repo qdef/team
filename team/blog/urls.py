@@ -19,5 +19,11 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-        url(r'^$', views.blog, name='blog'),
-]
+        url(r'^$', views.liste, name='blog'),
+        url(r'^football/$', views.football, name='football'),
+        url(r'^rugby/$', views.rugby, name='rugby'),
+        url(r'^american/$', views.american, name='american'),
+        url(r'create/$', views.create, name='create'),
+        url(r'^detail/(?P<pk>\d+)/$', views.detail, name='detail'),
+        url(r'^edit/(?P<pk>\d+)/$', views.edit , name='edit'),
+	]

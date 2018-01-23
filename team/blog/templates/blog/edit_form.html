@@ -1,0 +1,22 @@
+{% extends "blog/blog.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="content">
+		<div class="single-page">
+			<div class="print-main">
+				<h3> Post Modification </h3>
+				<form method='POST' action=''> {% csrf_token %}
+				Post Title:  {{ form.title }} <br> <br>
+				Sport Category:  {{ form.sport }} <br> <br>
+				Select Image:  {{ form.image }} <br>
+				Post Text: <br>{{ form.body }} <br> <br>				
+				<input type='submit' value='Edit Post' />
+				</form>
+			</div>
+		</div>	
+	</div>
+</div>
+
+{% endblock content %}
+

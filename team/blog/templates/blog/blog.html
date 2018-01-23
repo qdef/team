@@ -21,20 +21,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="index.html"><h1>Team.Blog</h1></a>
-			</div>
-			<div class="pages">
-				<ul>
-					<!--<li><a href="football.html">Football</a></li>
-					<li><a href="rugby.html">Rugby</a></li>
-					<li><a href="american.html">American Football</a></li>-->
-				</ul>
+				<a href="{% url 'blog' %}"><h1>Team.Blog</h1></a>
 			</div>
 			<div class="navigation">
 				<ul>
-					<li><a href="index.html">Team.Homepage</a></li>
-					<li><a href="scores.html">Scores and Results</a></li>
-					<li><a href="contact.html">Contact Us</a></li>
+					<li><a href="{% url 'index' %}">Team.Homepage</a></li>
+					<li><a href="{% url 'scores' %}">Scores and Results</a></li>
+					<li><a href="{% url 'contact' %}">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -275,9 +268,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-2 footer-links">
 					<h4>Team.Links</h4>
-					<a href="#">Team.Homepage</a>
-					<a href="#">Scores and Results</a>
-					<a href="#">Contact Us</a>
+					<a href="{% url 'index' %}">Team.Homepage</a>
+					<a href="{% url 'scores' %}">Scores and Results</a>
+					<a href="{% url 'contact' %}">Contact Us</a>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -285,7 +278,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="copyrights">
-					<p>Copyright Team. {% now 'Y' %} © All rights reserved </p>
+					<p>Copyright Team.{% now 'Y' %} &copy; All rights reserved </p>
 				</div>
 			</div>
 		</div>

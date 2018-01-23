@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>The Sports Website</title>
+<title> Team.Blog</title>
 <link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
@@ -21,20 +21,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="index.html"><h1>Sports</h1></a>
+				<a href="index.html"><h1>Team.Blog</h1></a>
 			</div>
 			<div class="pages">
 				<ul>
-					<li><a href="football.html">Football</a></li>
+					<!--<li><a href="football.html">Football</a></li>
 					<li><a href="rugby.html">Rugby</a></li>
-					<li><a href="american.html">American Football</a></li>
+					<li><a href="american.html">American Football</a></li>-->
 				</ul>
 			</div>
 			<div class="navigation">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.html">Team.Homepage</a></li>
 					<li><a href="scores.html">Scores and Results</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="contact.html">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -43,17 +43,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="header-bottom">
             <div class="type">
-				<h5>Article Types</h5>
+				<h3>Sports</h3><br>
 			</div>
 			<span class="menu"></span>
 			<div class="list-nav">
 				<ul>                                                                 
-					<li><a href="3dprinting.html">3D Printing</a></li>|
-					<li><a href="materials.html">Materials</a></li>|
-					<li><a href="printing.html">Printing</a></li>|
-					<li><a href="filestoprint.html">Files to Print</a></li>|
-					<li><a class="active" href="404.html">Videos</a></li>|
-					<li><a href="about.html">About</a></li>
+					<li><a href="3dprinting.html">Football</a></li>|
+					<li><a href="materials.html">Rugby</a></li>|
+					<li><a href="printing.html">American Football</a></li>|
+					<li><a href="filestoprint.html">Basketball</a></li>|
+					<li><a class="active" href="404.html">Hockey</a></li>|
+					<li><a href="about.html">Tennis</a></li>
 				</ul>
 			</div>
 			<!-- script for menu -->
@@ -253,35 +253,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="footer">
 		<div class="footer-top">
 			<div class="container">
-				<div class="col-md-3 footer-links">
-					<h4>Other pages and things</h4>
-					<a href="#">Design a creative Blog</a>
-					<a href="#">Design a iPad Website</a>
-					<a href="#">Single Page sales portfolio </a>
-					<a href="#">Flat product website in Photoshop</a>
-					<a href="#">Design a creative Blog</a>
-					<a href="#">Design a iPad Website</a>
-					<a href="#">Single Page sales portfolio </a>
-					<a href="#">Flat product website</a>
+				<div class="col-md-4 footer-links">
+					<h4>Official Websites</h4>
+					<a href="https://fr.uefa.com/uefachampionsleague/index.html#/" target="blank">UEFA Champions League</a>
+					<a href="http://www.fifa.com/worldcup/index.html/" target="blank">FIFA World Cup</a>
+					<a href="http://www.lfp.fr/" target="blank">Ligue 1</a>
+					<a href="https://www.premierleague.com/" target="blank">Premier League</a>					
+					<a href="http://www.lnr.fr/rugby-top-14" target="blank">Rugby Top 14</a>
+					<a href="http://www.epcrugby.fr/europeanrugbychampionscup/index.php" target="blank">Rugby Champions Cup-Challenge Cup</a>
+					<a href="https://www.nfl.com/" target="blank">National Football League</a>
+					<a href="https://www.nhl.com/" target="blank">National Hockey League</a>
+					<a href="https://www.nba.com" target="blank">NBA</a>
 				</div>
-				<div class="col-md-3 footer-links span_66">
-					<a href="#">Flat product website in Photoshop</a>
-					<a href="#">Design a creative Blog</a>
-					<a href="#">Design a iPad Website </a>
+				<div class="col-md-6 footer-links">
+					<h4>Latest Articles</h4>
+					<a href="#">Patriots vs Eagles in the Superbowl</a>
+					<a href="#">OL beats PSG in french championship</a>
+					<a href="#">Four french clubs qualified for Champions Cup 1/4 finals</a>
+					<a href="#">New England Patriots beat Jacksonville Jaguars in AFC Finals</a>
+					<a href="#">UEFA Champions League: our predictions for the Round of 16</a>
 				</div>
-				<div class="col-md-3 footer-links">
-					<h4>Relevant Articles</h4>
-					<a href="#">Design a creative Blog</a>
-					<a href="#">Design a iPad Website</a>
-					<a href="#">Single Page sales portfolio </a>
-					<a href="#">Flat product website</a>
-					<a href="#">Design a creative Blog</a>
-				</div>
-				<div class="col-md-3 footer-links">
-					<h4>Other pages and things</h4>
-					<a href="#">Blaz Robar</a>
-					<a href="#">Nick Toranto</a>
-					<a href="#">Joisp Kelava</a>
+				<div class="col-md-2 footer-links">
+					<h4>Team.Links</h4>
+					<a href="#">Team.Homepage</a>
+					<a href="#">Scores and Results</a>
+					<a href="#">Contact Us</a>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -289,7 +285,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="copyrights">
-					<p>The Sports Website {% now 'Y' %} © All rights reserved </p>
+					<p>Copyright Team. {% now 'Y' %} © All rights reserved </p>
 				</div>
 			</div>
 		</div>

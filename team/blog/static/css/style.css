@@ -62,17 +62,18 @@ label{
 }
 .pages {
 	float: left;
-	width: 50%;
+	width: 60%;
 	margin-top: 8px;
 }
 .pages ul li {
 	display: inline-block;
+	margin:0 0 0 0.5em;
 }
 .pages ul li a {
 	font-size: 1.5em;
 	text-decoration:none;
-	padding: 0 5em;
-	margin: 0 5em;
+	padding: 0 0em;
+	margin: 2.8em;
 	list-style: none;
 	cursor: pointer;
 	font-weight: 400;
@@ -93,7 +94,7 @@ label{
 }
 .navigation ul li {
 	display:inline-block;
-	margin:0 0 0 2.5em;
+	margin:0 0 0 0.7em;
 }
 .navigation ul li a {
 	color:#fff;

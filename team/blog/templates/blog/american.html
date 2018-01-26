@@ -16,6 +16,9 @@
 				<a href="{% url 'detail' post.pk %}">{{ post.title }}</a>
 				<p class="sub_head">Posted by Team.</a> on {{ post.created }}</p>
 				<p class="span">Category: <a href="{% url 'american' %}">{{ post.sport }}</a></p>
+				{% if post.image != '' %}
+				<img src='{{ post.image.url }}' class='img-responsive' id='image_responsive' width="10">
+				{% endif %}
 				<p class="ptext"> {{ post.body|safe|linebreaks|truncatechars:100}}</p><br><a href="{% url 'detail' post.pk %}"> Read More &rarr;</a>
 				<br> <br> <br> <br> <br>
 				{% endif %}

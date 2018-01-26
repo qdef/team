@@ -32,7 +32,7 @@ def detail(request, pk):
 	return render(request, 'blog/detail.html', context)
 
 def create(request):
-	form=PostForm(request.POST or None)
+	form=PostForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
@@ -45,7 +45,7 @@ def create(request):
 
 def edit(request, pk=None):
 	instance = get_object_or_404(BlogArticles, pk=pk)
-	form=PostForm(request.POST or None, instance=instance)
+	form=PostForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.save()

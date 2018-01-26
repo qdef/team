@@ -14,13 +14,18 @@
 				{% for post in blog_articles %}
 				<a href=" {% url 'detail' post.pk %}">{{ post.title }}</a>
 				<p class="sub_head">Posted by Team.</a> on {{ post.created }}</p>
-				<a href="#"><img src="images/printing.jpg" class="img-responsive" alt="" /></a>
+				{% if post.created != post.updated %}
+				<p>Last updated on {{ post.updated }}</p>
+				{% endif %}
 				{% if post.sport == 'Football' %}
 				<p class="span">Category: <a href="{% url 'football' %}">{{ post.sport }}</a></p>
 				{% elif post.sport == 'Rugby' %}
 				<p class="span">Category: <a href="{% url 'rugby' %}">{{ post.sport }}</a></p>
 				{% elif post.sport == 'American Football' %}
 				<p class="span">Category: <a href="{% url 'american' %}">{{ post.sport }}</a></p>
+				{% endif %}
+				{% if post.image != '' %}
+				<img src='{{ post.image.url }}' class='img-responsive' id='image_responsive' width="10">
 				{% endif %}
 				<p class="ptext"> {{ post.body|safe|linebreaks|truncatechars:100}}</p><br><a href="{% url 'detail' post.pk %}"> Read More &rarr;</a>
 				<br> <br> <br> <br> <br>
@@ -32,19 +37,3 @@
 
 
 {% endblock %}
-
-
-
-{{ post.image }}<br>
-
-
-		<br> <br>
-		<button type="button" class="btn btn-dark"> Create Post </button>
-	
-		
-		
-		<button type="button" class="btn btn-danger"> Delete Post </button>
-		<br> <br>	
-
-
-<button type="button" class="btn btn-info"> Edit Post </button>

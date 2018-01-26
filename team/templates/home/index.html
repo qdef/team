@@ -13,7 +13,7 @@
     <title> Team.Homepage </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
@@ -75,32 +75,34 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
             <a href="post.html">
+	    {% for post in blog_articles %}
               <h2 class="post-title">
-                Article 1
-              </h2>
-              <h3 class="post-subtitle">
-                Introduction
-              </h3>
+	      <a href=" {% url 'detail' post.pk %}">{{ post.title }}</a>
+	      </h2>
+              <h5 class="post-subtitle">
+	      {% if post.sport == 'Football' %}
+	      <p class="span">Category: <a href="{% url 'football' %}">{{ post.sport }}</a></p>
+	      {% elif post.sport == 'Rugby' %}
+	      <p class="span">Category: <a href="{% url 'rugby' %}">{{ post.sport }}</a></p>
+	      {% elif post.sport == 'American Football' %}
+	      <p class="span">Category: <a href="{% url 'american' %}">{{ post.sport }}</a></p>
+	      {% endif %}
+              </h5>
             </a>
             <p class="post-meta">Posted by
               <a href="#">Team.</a>
               on September 24, 2018</p>
+	      <div id='image_responsive'>
+	      {% if post.image != '' %}
+				<img src='{{ post.image.url }}' class='img-responsive' id='image_responsive' width="10">
+	      {% endif %}
+	      </div>
+	      <p class="ptext"> {{ post.body|safe|linebreaks|truncatechars:100}}</p><a href="{% url 'detail' post.pk %}"> Read More &rarr;</a> <br> <br>
+          <hr>
+          {% endfor %}
           </div>
           <hr>
-          <div class="post-preview">
-            <a href="post.html">
-              <h2 class="post-title">
-                Article 2
-              </h2>
-			  <h3 class="post-subtitle">
-                Introduction
-              </h3>
-            </a>
-            <p class="post-meta">Posted by
-              <a href="#">Start Bootstrap</a>
-              on September 18, 2018</p>
-          </div>
-          <hr>
+          
           <!-- Pager -->
           <div class="clearfix">
             <a class="btn btn-primary float-right" href="{% url 'blog' %}">All Posts &rarr;</a>

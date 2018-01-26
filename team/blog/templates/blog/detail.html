@@ -38,14 +38,19 @@
 				</div>
 				<br> <br>
 				<a href="{% url 'detail' full_article.pk %}">{{ full_article.title }}</a>
-				<p class="sub_head">Posted by Team.</a> on {{ full_article.created }}</p>
-				<!--<img src="images/printing.jpg" class="img-responsive" alt="" />-->
+				<p class="sub_head">Posted by Team.</a> on {{ full_article.created }}
+				{% if full_article.created != full_article.updated %}
+				<p>Last updated on {{ full_article.updated }}</p>
+				{% endif %}
 				{% if full_article.sport == 'Football' %}
 				<p class="span">Category: <a href="{% url 'football' %}">{{ full_article.sport }}</a></p>
 				{% elif full_article.sport == 'Rugby' %}
 				<p class="span">Category: <a href="{% url 'rugby' %}">{{ full_article.sport }}</a></p>
 				{% elif full_article.sport == 'American Football' %}
 				<p class="span">Category: <a href="{% url 'american' %}">{{ full_article.sport }}</a></p>
+				{% endif %}
+				{% if full_article.image != '' %}
+				<img src='{{ full_article.image.url }}' class='img-responsive' width="10">
 				{% endif %}
 				<p class="ptext"> {{ full_article.body|safe|linebreaks}}</p>
 				<br> <br>

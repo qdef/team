@@ -6,7 +6,7 @@
 		<div class="single-page">
 			<div class="print-main">
 				<h3> Post Creation Form </h3>
-				<form method='POST' action=''> {% csrf_token %}
+				<form method='POST' action='' enctype='multipart/form-data'> {% csrf_token %}
 				Post Title:  {{ form.title }} <br> <br>
 				Sport Category:  {{ form.sport }} <br> <br>
 				Select Image:  {{ form.image }} <br>

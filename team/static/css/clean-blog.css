@@ -4,6 +4,10 @@ body {
   font-family: 'Lora', 'Times New Roman', serif;
 }
 
+#image_responsive .img-responsive{
+width:100px;
+}	
+
 p {
   line-height: 1.5;
   margin: 30px 0;
@@ -77,6 +81,7 @@ img::-moz-selection {
   color: #fff;
   background: transparent;
 }
+
 
 #mainNav {
   position: absolute;

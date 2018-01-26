@@ -81,11 +81,9 @@
 				</div>
 				<div class="col-md-6 footer-links">
 					<h4>Latest Articles</h4>
-					<a href="#">Patriots vs Eagles in the Superbowl</a>
-					<a href="#">OL beats PSG in french championship</a>
-					<a href="#">Four french clubs qualified for Champions Cup 1/4 finals</a>
-					<a href="#">New England Patriots beat Jacksonville Jaguars in AFC Finals</a>
-					<a href="#">UEFA Champions League: our predictions for the Round of 16</a>
+					{% for post in blog_articles %}
+					<a href=" {% url 'detail' post.pk %}">{{ post.title }}</a>
+					{% endfor %}
 				</div>
 				<div class="col-md-2 footer-links">
 					<h4>Team.Links</h4>

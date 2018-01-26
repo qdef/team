@@ -194,7 +194,7 @@ label{
 	padding:0;
 }
 .article img {
-	width:95%;
+	width:20%;
 	margin-bottom:1em;
 }
 h5.head {
@@ -672,7 +672,8 @@ a.more:hover {
 	margin-top:2.5em;
 }
 img.img-responsive {
-	width: 100%;
+	width: 50%;
+	left : 20%;
 }
 /*--error--*/
 .error{

@@ -107,6 +107,9 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
 }
+#image_responsive .img-responsive{
+width:50%;
+}	
 
 @-ms-viewport {
   width: device-width;

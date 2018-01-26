@@ -15,17 +15,17 @@ def liste(request):
 
 
 def football(request):
-	football_list = BlogArticles.objects.filter(sport='Football').order_by("-created")[:10]
+	football_list = BlogArticles.objects.filter(sport='Football').order_by("-created")
 	context = { 'blog_articles': football_list}
 	return render(request, 'blog/football.html', context)
 
 def rugby(request):
-	rugby_list = BlogArticles.objects.filter(sport='Rugby').order_by("-created")[:10]
+	rugby_list = BlogArticles.objects.filter(sport='Rugby').order_by("-created")
 	context = { 'blog_articles': rugby_list}
 	return render(request, 'blog/rugby.html', context)
 
 def american(request):
-	american_list = BlogArticles.objects.filter(sport='American Football').order_by("-created")[:10]
+	american_list = BlogArticles.objects.filter(sport='American Football').order_by("-created")
 	context = { 'blog_articles': american_list}
 	return render(request, 'blog/american.html', context)
 

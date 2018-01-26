@@ -8,7 +8,7 @@ ENV/
 .sh
 .txt
 __pycache__
-db.sqlite3
+
 
 
 # Django stuff:

@@ -9,7 +9,9 @@ ENV/
 .txt
 __pycache__
 
+.wpr
 
+.vscode
 
 # Django stuff:
 *.log

@@ -11,8 +11,28 @@ body{
 	background:#fff;
 }
 
-#buttons .btn {
+#buttons .btn-info {
     background-color: #424242;
+    border: #000000;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+	}
+#buttons .btn-warning {
+    background-color: #FF0000;
+    border: #000000;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+	}
+#buttons .btn-edit {
+    background-color: #848484;
     border: #000000;
     color: white;
     padding: 5px 15px;

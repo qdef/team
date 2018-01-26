@@ -4,9 +4,6 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.forms import PostForm
 
-"""def blog(request):
-	context={'blog': blog}
-	return render(request, 'blog/blog.html', context)"""
 
 def liste(request):
 	articles_list = BlogArticles.objects.all().order_by("-created")[:10]
@@ -59,12 +56,10 @@ def edit(request, pk=None):
 	context={"title":instance.title, "instance":instance, "form":form}
 	return render(request, "blog/edit_form.html", context)
 
-
-
-
-"""def blog_delete(request, id=None):
-	instance = get_object_or_404(Post, id=id)
+def delete(request, pk=None):
+	instance=get_object_or_404(BlogArticles, pk=pk)
 	instance.delete()
 	messages.success(request, "Post was successfully deleted.")
-	return redirect("blog:list")"""
+	return HttpResponseRedirect(instance.get_absolute_url_deletion())
+
 

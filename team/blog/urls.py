@@ -26,4 +26,5 @@ urlpatterns = [
         url(r'create/$', views.create, name='create'),
         url(r'^detail/(?P<pk>\d+)/$', views.detail, name='detail'),
         url(r'^edit/(?P<pk>\d+)/$', views.edit , name='edit'),
+        url(r'^careful_when_clicking_this_link!!!/(?P<pk>\d+)/$', views.delete , name='delete'),
 	]

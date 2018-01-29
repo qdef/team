@@ -28,7 +28,8 @@ def american(request):
 
 def detail(request, pk):
 	articles = BlogArticles.objects.get(pk=pk)
-	context = { 'full_article': articles}
+	articles_list = BlogArticles.objects.filter(sport=articles.sport).order_by("-created")[:10]
+	context = { 'full_article': articles, 'blog_articles': articles_list}
 	return render(request, 'blog/detail.html', context)
 
 def create(request):
@@ -36,11 +37,11 @@ def create(request):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
-		messages.success(request, "Post was successfully created!")
+		#messages.success(request, "Post was successfully created!")
 		return HttpResponseRedirect(instance.get_absolute_url())
 	else:
-		messages.success(request, "Post creation failed.")
-	context={"form":form}
+		#messages.success(request, "Post creation failed.")
+		context={"form":form}
 	return render(request, "blog/post_form.html",context)
 
 def edit(request, pk=None):
@@ -49,17 +50,18 @@ def edit(request, pk=None):
 	if form.is_valid():
 		instance=form.save(commit=False)
 		instance.save()
-		messages.success(request, "Post was successfully updated!")
+		#messages.success(request, "Post was successfully updated!")
 		return HttpResponseRedirect(instance.get_absolute_url())
 	else:
-		messages.success(request, "Post modification failed.")
+		pass
+		#messages.success(request, "Post modification failed.")
 	context={"title":instance.title, "instance":instance, "form":form}
 	return render(request, "blog/edit_form.html", context)
 
 def delete(request, pk=None):
 	instance=get_object_or_404(BlogArticles, pk=pk)
 	instance.delete()
-	messages.success(request, "Post was successfully deleted.")
+	#messages.success(request, "Post was successfully deleted.")
 	return HttpResponseRedirect(instance.get_absolute_url_deletion())
 
 

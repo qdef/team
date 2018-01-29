@@ -6,11 +6,14 @@
 		<div class="single-page">
 			<div class="print-main">
 				<h3> Post Modification </h3>
-				<form method='POST' action=''> {% csrf_token %}
+				<form method='POST' action='' enctype='multipart/form-data'> {% csrf_token %}
 				Post Title:  {{ form.title }} <br> <br>
 				Sport Category:  {{ form.sport }} <br> <br>
-				Select Image:  {{ form.image }} <br>
-				Post Text: <br>{{ form.body }} <br> <br>				
+				Select Image:  {{ form.image }}
+				<B>Note:</B><i> if the post already contains an image, you must first clear this image,<br>
+				saves changes and edit the post again to add a new image.</i> <br> <br>
+				Post Text: <br>
+				<textarea class="form-control" rows="10"{{ form.body }} </textarea> <br> <br>				
 				<input type='submit' value='Edit Post' />
 				</form>
 			</div>
@@ -19,4 +22,6 @@
 </div>
 
 {% endblock content %}
+
+<form id="page-edit-form" action="{% url 'wagtailadmin_pages:edit' page.id %}" method="POST"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>`
 

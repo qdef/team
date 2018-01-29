@@ -6,13 +6,6 @@
 	<div class="content">
 		<div class="single-page">
 			<div class="print-main">
-				{% if messages %}
-				<ul class="messages">
-					{% for message in messages %}
-					<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-					{% endfor %}
-					</ul>
-				{% endif %}
 				<div id='buttons'>
 				<a href="{% url 'create' %}" type="button" class="btn btn-info"> Create Post </a>
 				<a href="{% url 'edit' full_article.pk %}" type="button" class="btn btn-edit"> Edit Post </a>
@@ -60,3 +53,9 @@
 </div>
 
 {% endblock %}
+
+{% block footer %}
+	{% for post in blog_articles %}
+	<a href=" {% url 'detail' post.pk %}">{{ post.title }}</a>
+	{% endfor %}
+{% endblock footer %}

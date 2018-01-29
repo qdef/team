@@ -37,3 +37,9 @@
 
 
 {% endblock %}
+
+{% block footer %}
+	{% for post in blog_articles %}
+	<a href=" {% url 'detail' post.pk %}">{{ post.title }}</a>
+	{% endfor %}
+{% endblock footer %}

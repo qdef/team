@@ -81,9 +81,8 @@
 				</div>
 				<div class="col-md-6 footer-links">
 					<h4>Latest Articles</h4>
-					{% for post in blog_articles %}
-					<a href=" {% url 'detail' post.pk %}">{{ post.title }}</a>
-					{% endfor %}
+					{% block footer %}
+					{% endblock footer %}
 				</div>
 				<div class="col-md-2 footer-links">
 					<h4>Team.Links</h4>

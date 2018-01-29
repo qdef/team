@@ -10,7 +10,9 @@
 				Post Title:  {{ form.title }} <br> <br>
 				Sport Category:  {{ form.sport }} <br> <br>
 				Select Image:  {{ form.image }} <br>
-				Post Text: <br>{{ form.body }} <br> <br>				
+				Post Text: <br>
+				<div class="form-group">
+				<textarea class="form-control" rows="10"{{ form.body }} </textarea> </div>   <br> <br>				
 				<input type='submit' value='Create Post' />
 				</form>
 			</div>

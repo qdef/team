@@ -1,0 +1,34 @@
+{% extends "blog/blog.html" %}
+
+{% block content %}
+
+
+<div class="container">
+	<div class="content">
+		<div class="single-page">
+			<div class="print-main">
+				<h3>Sign up to Team.</h3>
+				<form method="post">
+				{% csrf_token %}
+				{% for field in form %}
+				<p>
+					{{ field.label_tag }}<br>
+					{{ field }}
+					{% if field.help_text %}
+					<small style="color: grey">{{ field.help_text }}</small>
+					{% endif %}
+					{% for error in field.errors %}
+					<p style="color: red">{{ error }}</p>
+					{% endfor %}
+				</p>
+				{% endfor %}
+				<br>
+				<div id='buttons'>
+				<button type="submit" class="btn btn-info">Sign up</button>
+				</form>
+				</div>				
+			</div>
+		</div>	
+	</div>
+</div>
+{% endblock %}

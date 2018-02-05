@@ -3,6 +3,7 @@ from .models import BlogArticles
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.forms import PostForm
+from django.contrib.auth.decorators import login_required
 
 
 def liste(request):
@@ -32,18 +33,21 @@ def detail(request, pk):
 	context = { 'full_article': articles, 'blog_articles': articles_list}
 	return render(request, 'blog/detail.html', context)
 
+@login_required
 def create(request):
 	form=PostForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
+		#post= BlogArticles.objects.get(pk=pk)
 		#messages.success(request, "Post was successfully created!")
-		return HttpResponseRedirect(instance.get_absolute_url())
+		return redirect('detail', pk=instance.get_pk())
 	else:
 		#messages.success(request, "Post creation failed.")
 		context={"form":form}
 	return render(request, "blog/post_form.html",context)
 
+@login_required
 def edit(request, pk=None):
 	instance = get_object_or_404(BlogArticles, pk=pk)
 	form=PostForm(request.POST or None, request.FILES or None, instance=instance)
@@ -51,17 +55,19 @@ def edit(request, pk=None):
 		instance=form.save(commit=False)
 		instance.save()
 		#messages.success(request, "Post was successfully updated!")
-		return HttpResponseRedirect(instance.get_absolute_url())
+		return redirect('detail', pk=pk)
 	else:
 		pass
 		#messages.success(request, "Post modification failed.")
 	context={"title":instance.title, "instance":instance, "form":form}
 	return render(request, "blog/edit_form.html", context)
 
+
 def delete(request, pk=None):
 	instance=get_object_or_404(BlogArticles, pk=pk)
 	instance.delete()
 	#messages.success(request, "Post was successfully deleted.")
-	return HttpResponseRedirect(instance.get_absolute_url_deletion())
+	return redirect('blog')
+
 
 

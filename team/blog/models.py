@@ -20,11 +20,8 @@ class BlogArticles(models.Model):
 	def __str__(self):
 		return self.title
 	
-	def get_absolute_url(self):
-		return "/blog/detail/%s/" %(self.pk)
-	
-	def get_absolute_url_deletion(self):
-		return "/blog/"
+	def get_pk(self):
+		return self.pk
 
 
 

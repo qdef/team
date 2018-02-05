@@ -54,6 +54,10 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'team.urls'
 
+LOGIN_REDIRECT_URL = 'blog'
+
+LOGIN_URL = 'login'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

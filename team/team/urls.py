@@ -19,9 +19,14 @@ from django.contrib import admin
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+from team import views as core_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'), 
+    url(r'^signup/$', core_views.signup, name='signup'),
     url(r'^$', views.liste_index, name='index'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^blog/', include('blog.urls')),

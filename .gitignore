@@ -9,7 +9,8 @@ ENV/
 .txt
 __pycache__
 
-.wpr
+
+*.wpr
 
 .vscode
 

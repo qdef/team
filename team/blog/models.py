@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 class BlogArticles(models.Model):
 	FOOTBALL = 'Football'
@@ -16,6 +17,7 @@ class BlogArticles(models.Model):
 	image = models.FileField(null=True, blank=True)
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
+	author = models.ForeignKey(User, models.CASCADE, default=None)
 	
 	def __str__(self):
 		return self.title

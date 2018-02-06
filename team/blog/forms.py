@@ -9,4 +9,5 @@ class PostForm(forms.ModelForm):
 			"sport",
 		        "image",
 		        "body",
+		        #"author",
 		]

@@ -7,13 +7,23 @@
 	<div class="content">
 		<div class="single-page">
 			<div class="print-main">
-				<h3>Latest Posts</h3>
 				<div id='buttons'>
-				<a href="{% url 'create' %}" type="button" class="btn btn-info"> Create Post </a><br><br><br>
+				<a href="{% url 'create' %}" type="button" class="btn btn-info"> Create Post </a>
+				{% if user.is_authenticated %}
+				{% if user.is_superuser %}
+				<a href="{% url 'admin:index' %}" type="button" class="btn btn-edit"> Admin </a>
+				{% endif %}
+				<a href="{% url 'logout' %}" type="button" class="btn btn-info"> Logout </a>
+				{% else %}
+				<a href="{% url 'login' %}" type="button" class="btn btn-edit"> Login </a>
+				<a href="{% url 'login' %}" type="button" class="btn btn-info"> Sign up </a>
+				{% endif %}
+				<br> <br>
 				</div>
+				<h3>Latest Posts</h3>
 				{% for post in blog_articles %}
 				<a href=" {% url 'detail' post.pk %}">{{ post.title }}</a>
-				<p class="sub_head">Posted by Team.</a> on {{ post.created }}</p>
+				<p class="sub_head">Posted by {{ post.author }}.</a> on {{ post.created }}</p>
 				{% if post.created != post.updated %}
 				<p>Last updated on {{ post.updated }}</p>
 				{% endif %}
@@ -28,7 +38,7 @@
 				<img src='{{ post.image.url }}' class='img-responsive' id='image_responsive' width="10">
 				{% endif %}
 				<p class="ptext"> {{ post.body|safe|linebreaks|truncatechars:100}}</p><br><a href="{% url 'detail' post.pk %}"> Read More &rarr;</a>
-				<br> <br> <br> <br> <br>
+				<hr> <br> <br>
 				{% endfor %}
 			</div>
 		</div>	

@@ -38,8 +38,8 @@ def create(request):
 	form=PostForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
+		instance.author=request.user
 		instance.save()
-		#post= BlogArticles.objects.get(pk=pk)
 		#messages.success(request, "Post was successfully created!")
 		return redirect('detail', pk=instance.get_pk())
 	else:
@@ -51,13 +51,16 @@ def create(request):
 def edit(request, pk=None):
 	instance = get_object_or_404(BlogArticles, pk=pk)
 	form=PostForm(request.POST or None, request.FILES or None, instance=instance)
-	if form.is_valid():
-		instance=form.save(commit=False)
-		instance.save()
-		#messages.success(request, "Post was successfully updated!")
-		return redirect('detail', pk=pk)
+	if request.user==instance.author:
+		if form.is_valid():
+			instance=form.save(commit=False)
+			instance.save()
+			#messages.success(request, "Post was successfully updated!")
+			return redirect('detail', pk=pk)
+		else:
+			pass
 	else:
-		pass
+		return redirect('user_error')	
 		#messages.success(request, "Post modification failed.")
 	context={"title":instance.title, "instance":instance, "form":form}
 	return render(request, "blog/edit_form.html", context)
@@ -65,9 +68,15 @@ def edit(request, pk=None):
 
 def delete(request, pk=None):
 	instance=get_object_or_404(BlogArticles, pk=pk)
-	instance.delete()
-	#messages.success(request, "Post was successfully deleted.")
-	return redirect('blog')
+	if request.user==instance.author:
+		instance.delete()
+		#messages.success(request, "Post was successfully deleted.")
+		return redirect('blog')
+	else:
+		return redirect('user_error')
 
+def user_error(request):
+	return render(request, "blog/user_error.html")
+	
 
 

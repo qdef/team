@@ -20,6 +20,7 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
+	font-family: 'Georgia Regular';
 	}
 #buttons .btn-warning {
     background-color: #FF0000;
@@ -30,6 +31,7 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
+	font-family: 'Georgia Regular';
 	}
 #buttons .btn-edit {
     background-color: #848484;
@@ -40,7 +42,43 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
+	font-family: 'Georgia Regular';
 	}
+
+#buttons .btn-log {
+    background-color: #088A08;
+    border: #000000;
+    color: white;
+    padding: 5px 15px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+	margin-left : 0;
+	font-family: 'Georgia Regular';
+	}
+	
+#buttons .btn-blue {
+    background-color: #0431B4;
+    border: #000000;
+    color: white;
+    padding: 5px 15px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+	margin-left : 0;
+	font-family: 'Georgia Regular';
+	}
+	
+.navbar-btn { margin-right:0px;
+}
+
+.inline {display : inline-block;
+text-align : right;
+margin-right : 0;
+}
+
 @font-face {
     font-family: 'Times-Italic';
     src: url('../fonts/Times-Italic.ttf');

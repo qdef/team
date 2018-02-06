@@ -25,13 +25,22 @@
 					<a href="{% url 'delete' full_article.pk %}" type="button" class="btn btn-warning">Delete Post</a>
 					<a type="button" class="btn btn-info" data-dismiss="modal">Cancel</a>
 				</div>
-
 				</div>
 				</div>
 				</div>
+				{% if user.is_authenticated %}
+				{% if user.is_superuser %}
+				<a href="{% url 'admin:index' %}" type="button" class="btn btn-edit"> Admin </a>
+				{% endif %}
+				<a href="{% url 'logout' %}" type="button" class="btn btn-info"> Logout </a>
+				{% else %}
+				<a href="{% url 'login' %}" type="button" class="btn btn-edit"> Login </a>
+				<a href="{% url 'signup' %}" type="button" class="btn btn-info"> Sign up </a>
+				{% endif %}
+				
 				<br> <br>
 				<a href="{% url 'detail' full_article.pk %}">{{ full_article.title }}</a>
-				<p class="sub_head">Posted by Team. </a> on {{ full_article.created }}
+				<p class="sub_head">Posted by {{ full_article.author }}. </a> on {{ full_article.created }}
 				{% if full_article.created != full_article.updated %}
 				<p>Last updated on {{ full_article.updated }}</p>
 				{% endif %}

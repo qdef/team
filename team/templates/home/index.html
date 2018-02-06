@@ -72,7 +72,7 @@
     <!-- Main Content -->
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-12 col-md-12 mx-auto">
           <div class="post-preview">
             <a href="post.html">
 	    {% for post in blog_articles %}
@@ -89,9 +89,11 @@
 	      {% endif %}
               </h5>
             </a>
-            <p class="post-meta">Posted by
-              <a href="#">Team.</a>
-              on September 24, 2018</p>
+		  <p class="post-meta"> Posted by {{ post.author }} on {{ post.created }}
+		  {% if post.created != post.updated %}
+		  Last updated on {{ post.updated }}
+		  {% endif %}
+		  </p>
 	      <div id='image_responsive'>
 	      {% if post.image != '' %}
 				<img src='{{ post.image.url }}' class='img-responsive' id='image_responsive' width="10">

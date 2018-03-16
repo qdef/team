@@ -22,6 +22,14 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from team import views as core_views
 
+from rest_framework.routers import DefaultRouter
+from blog.views import BlogViewSet, USerViewSet
+
+router = DefaultRouter()
+#router.register(prefix='blogviewset', viewset=BlogViewSet)
+router.register(r'blogviewset', BlogViewSet)
+router.register(r'userviewset', USerViewSet)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login, name='login'),
@@ -30,7 +38,9 @@ urlpatterns = [
     url(r'^$', views.liste_index, name='index'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^blog/', include('blog.urls')),
-    url(r'^scores/', include('scores.urls'))
+    url(r'^scores/', include('scores.urls')),
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
 
 if settings.DEBUG:

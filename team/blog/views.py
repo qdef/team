@@ -4,6 +4,23 @@ from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.forms import PostForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
+
+from rest_framework import viewsets
+from .serializers import BlogSerializer, USerSerializer
+
+
+class BlogViewSet(viewsets.ModelViewSet):
+    """ ViewSet for viewing and editing Chain objects """
+    queryset = BlogArticles.objects.all()
+    serializer_class = BlogSerializer
+
+class USerViewSet(viewsets.ModelViewSet):
+    """ ViewSet for viewing and editing Chain objects """
+    queryset = User.objects.all()
+    serializer_class = USerSerializer
+
 
 
 def liste(request):
